@@ -1,0 +1,13 @@
+// What are the shows that have a weight of 89 but not scripted?
+
+
+db.shows.find( 
+	{$and:[{"weight":{$eq:89}},{"type":{$not:/Scripted/}}]},
+	{"name":1})
+	
+	
+/*
+{ "_id" : ObjectId("5c71f71f275bf6e0134002c5"), "name" : "The Amazing Race" }
+{ "_id" : ObjectId("5c71f71f275bf6e013400325"), "name" : "Star Wars Rebels" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134003a4"), "name" : "The Daily Show with Jon Stewart" }
+*/

@@ -1,0 +1,56 @@
+
+// CRUD in MongoDB
+use tutorial
+show dbs
+db.users.insert({username:"smith"})
+db.users.find()
+db.users.insert({username:"jones"})
+db.users.count()
+db.users.find()
+db.users.find({username:"jones"})
+
+// or find
+db.users.find({$or:[
+	{username:"smith"},
+	{username:"jones"}
+]})
+
+// update
+db.users.find({username:"smith"})
+db.users.update({username:"smith"},{$set:{country:"Canada"}})
+db.users.find({username:"smith"})
+db.users.update({username:"smith"},{$unset:{country:1}})
+db.users.find({username:"smith"})
+
+db.users.update({username:"smith"},
+{
+	$set:{
+		favorites:{
+			cities:["Chicago","Cheyenne"],
+			movies:["Casablanca","For a Few Dollars More","The Sting"]
+		}
+	}
+})
+
+db.users.update({username:"jones"},
+{
+	$set:{
+		favorites:{
+			movies:["Casablanca","Rocky"]
+		}
+	}
+})
+
+db.users.find().pretty()
+db.users.find({"favorites.movies":"Casablanca"}).pretty()
+
+db.users.update({"favorites.movies":"Casablanca"},
+	{$addToSet:{"favorites.movies":"The Maltese Falcon"}},
+		false, true)
+		
+// remove users with favorites city of Cheyenne
+db.users.remove({"favorites.cities":"Cheyenne"})
+
+// drop table
+db.users.drop()
+

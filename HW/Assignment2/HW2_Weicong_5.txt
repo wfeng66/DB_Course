@@ -1,0 +1,17 @@
+// What are the programs that run on Sundays by the CBS network?
+
+db.shows.find(
+	{$and:[{"schedule.days":"Sunday"},{"network.name":"CBS"}]},
+	{"name":1})
+
+/* result:
+
+{ "_id" : ObjectId("5c71f71f275bf6e0134002e2"), "name" : "Madam Secretary" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002fa"), "name" : "NCIS: Los Angeles" }
+{ "_id" : ObjectId("5c71f71f275bf6e013400316"), "name" : "The Good Wife" }
+{ "_id" : ObjectId("5c71f71f275bf6e01340031e"), "name" : "CSI: Crime Scene Investigation" }
+{ "_id" : ObjectId("5c71f71f275bf6e013400324"), "name" : "The Mentalist" }
+{ "_id" : ObjectId("5c71f71f275bf6e013400333"), "name" : "Elementary" }
+*/
+	
+	

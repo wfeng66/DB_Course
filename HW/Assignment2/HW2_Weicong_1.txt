@@ -1,0 +1,13 @@
+// What are the names series that is Animation and language is Japanese?
+
+db.shows.find(
+	{$and:[{"type":"Animation"},{"language":"Japanese"}]},
+	{"name":1})
+	
+	
+/* result:
+{ "_id" : ObjectId("5c71f71f275bf6e0134002cc"), "name" : "Hellsing" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002cd"), "name" : "Hellsing Ultimate" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002ce"), "name" : "Berserk" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002da"), "name" : "Death Note" }
+*/

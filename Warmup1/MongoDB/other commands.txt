@@ -1,0 +1,18 @@
+
+// for help
+help				// on MongoDB console
+mongo --help		// Before running MongoDB
+
+// create large collection
+for(i=0; i<200000;i++){
+	db.numbers.save({num:i});
+}
+
+// check
+db.numbers.count()
+db.numbers.find()
+db.numbers.find({num:500})
+
+// range query
+db.numbers.find({num:{"$gt":199995}})
+db.numbers.find({num:{"$gt":20,"$lt":25}})

@@ -1,0 +1,3 @@
+// import collection to mongoDB 
+
+mongoimport tv-shows.json -d tv-shows -c shows --jsonArray --drop

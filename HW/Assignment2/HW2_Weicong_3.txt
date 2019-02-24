@@ -1,0 +1,28 @@
+// What were the names of the shows that aired during Sunday?
+
+db.shows.find({"schedule.days":"Sunday"},{"name":1})
+
+/*result:
+
+{ "_id" : ObjectId("5c71f71f275bf6e0134002b9"), "name" : "True Detective" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002bb"), "name" : "Homeland" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002bd"), "name" : "Revenge" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002c0"), "name" : "Lost Girl" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002c2"), "name" : "Continuum" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002c4"), "name" : "Penny Dreadful" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002c7"), "name" : "The Strain" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002c8"), "name" : "The Last Ship" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002c9"), "name" : "True Blood" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002cf"), "name" : "Californication" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002d9"), "name" : "Resurrection" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002dd"), "name" : "Outlander" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002e1"), "name" : "Witches of East End" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002e2"), "name" : "Madam Secretary" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002e3"), "name" : "Brooklyn Nine-Nine" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002e4"), "name" : "The Lottery" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002fa"), "name" : "NCIS: Los Angeles" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002fb"), "name" : "The Walking Dead" }
+{ "_id" : ObjectId("5c71f71f275bf6e013400304"), "name" : "Game of Thrones" }
+{ "_id" : ObjectId("5c71f71f275bf6e013400305"), "name" : "The Simpsons" }
+Type "it" for more
+*/

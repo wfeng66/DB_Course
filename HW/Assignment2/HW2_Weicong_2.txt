@@ -1,0 +1,11 @@
+// What are the names of the reality TV shows that have a running time over 120 minutes
+// and belongs to the ABC?
+
+db.shows.find(
+	{$and:[{"runtime":{"$gte":120}},{"network.name":"ABC"},{"type":"Reality"}]},
+	{"name":1})
+
+
+/*result:
+{ "_id" : ObjectId("5c71f71f275bf6e0134002f9"), "name" : "Dancing with the Stars" }
+*/

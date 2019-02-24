@@ -1,0 +1,12 @@
+// What are the shows that are running and but the type of genres is crime and thriller?
+
+db.shows.find(
+	{$and:[{"status":"Running"},{"genres":"Crime"},{"genres":"Thriller"}]},
+	{"name":1})
+	
+
+/*result
+{ "_id" : ObjectId("5c71f71f275bf6e0134002b9"), "name" : "True Detective" }
+{ "_id" : ObjectId("5c71f71f275bf6e0134002f7"), "name" : "The Blacklist" }
+{ "_id" : ObjectId("5c71f71f275bf6e013400303"), "name" : "Criminal Minds" }
+*/
