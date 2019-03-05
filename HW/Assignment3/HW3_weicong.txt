@@ -1,0 +1,106 @@
+db.grades.createIndex({"score":1})
+db.grades.createIndex({"kind":1})
+# 1. How many scores are there?
+db.grades.find({},{score:1}).count()
+# Result: 3000
+# 2. What are the different kinds of scores?
+db.grades.distinct("kind")
+# Result: [ "essay", "exam", "quiz" ]
+
+# 3. How many of each kind of score does each student have?
+db.grades.find({"kind":"essay"}).count()
+# Result: 1000
+db.grades.find({"kind":"exam"}).count()
+# Result: 1000
+db.grades.find({"kind":"quiz"}).count()
+# Result: 1000
+
+# 4. How many students got at least a 92 on their exam?
+db.grades.find({
+	$and:[
+		{"kind":"exam"},{"score":{$gte:92}}
+	]
+}).count()
+# Result: 153
+
+# 5. How many students got less than a 61 on their quiz?
+db.grades.find({
+	$and:[
+		{"kind":"quiz"},{"score":{$lt:92}}
+	]
+}).count()
+# Result: 841
+
+# 6. Create a copy of all the scores in another collection to use later, then update all
+#    the students who got less than a 60 on any kind of score with a new field, needs
+#    Help: true
+db.grades.updateMany({score:{$lt:60}},{
+	$set:{
+		"Help": true
+	}
+})
+# Result: { "acknowledged" : true, "matchedCount" : 571, "modifiedCount" : 571 }
+
+# 7. Find the student with the lowest number which has the lowest overall quiz score
+#    and then delete all the scores for that student - he was expelled.
+db.grades.find({"kind":"quiz"}).sort({score:1}).limit(1)
+# Result: { "_id" : ObjectId("4c90f2543d937c033f42487b"), "kind" : "quiz", "score" : 50, "student" : 126, "Help" : true }
+db.grades.updateMany({
+	$and:[
+		{"kind":"quiz"},{"score":{$eq:50}
+	}]},
+	{$unset:{score:""}})
+# Result: { "acknowledged" : true, "matchedCount" : 24, "modifiedCount" : 24 }
+
+# 8. A new student transferred to your school, add them to the scores collection.
+db.grades.insertOne({})
+# Result: 
+# {
+#        "acknowledged" : true,
+#        "insertedId" : ObjectId("5c7ddf32663d3b22d414a70d")
+#}
+
+# 9. Find all the students who have the essay scores less than 60, and then add the
+#    following fields to all those documents. major: "not decided yet" and status:
+#    "sophomore"
+db.grades.updateMany(
+	{score:{$lt:60}},
+	{$set:{
+		major: "not decided yet",
+		status: "sophomore"
+	}}
+)
+# Result: { "acknowledged" : true, "matchedCount" : 547, "modifiedCount" : 547 }
+
+# 10. Find all the students who have the quiz scores greater than 70, and then add the
+#     following fields to all those documents. major: "Computer Science", status:
+#     "sophomore", and catalogue: 2019
+db.grades.updateMany(
+	{$and:[
+		{"score":{$gt:70}},
+		{"kind":"quiz"}
+	]},
+	{$set:{
+		major: "Computer Science",
+		status: "sophomore",
+		catalogue: 2019
+		}
+	}
+)
+# Result: { "acknowledged" : true, "matchedCount" : 590, "modifiedCount" : 590 }
+
+# 11. Find all the students who have the quiz less than 60, and then add the following
+#     field to all those documents. status: "rejected".
+db.grades.updateMany(
+	{$and:[
+		{"kind":"quiz"},
+		{score:{$lt:60}}
+	]},
+	{$set:
+		{status: "rejected"}
+	}
+)
+# Result: { "acknowledged" : true, "matchedCount" : 172, "modifiedCount" : 172 }
+
+
+
