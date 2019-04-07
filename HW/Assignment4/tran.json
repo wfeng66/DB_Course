@@ -1,0 +1,4 @@
+{"_id":1.0,"cus_id":1.0,"accno":1.23123123e+08,"trantype":"D","amt":200.0,"relacc":0.0,"createdon":{"$date":"2019-04-06T15:56:45.422Z"}}
+{"_id":2.0,"cus_id":1.0,"accno":5.67567567e+08,"trantype":"T","amt":300.0,"relacc":9.00999e+08,"createdon":{"$date":"2019-04-06T15:56:45.422Z"}}
+{"_id":3.0,"cus_id":4.0,"accno":567567568,"trantype":"D","amt":5000,"relacc":0,"createdon":1.554601689688171e+09}
+{"_id":4.0,"cus_id":4.0,"accno":567567568,"trantype":"W","amt":1000,"relacc":0,"createdon":1.554602242385238e+09}

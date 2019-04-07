@@ -1,0 +1,8 @@
+{"_id":1.0,"fn":"David","ln":"Smith","ssn":1.231231234e+09,"add":"10 5th Ave.","city":"New York","state":"NY","zip":100001.0,"acc":[{"accno":1.23123123e+08,"acctype":"S","intrate":0.018,"overrate":25.0,"bln":600.0,"lastaccess":{"$date":"2019-04-06T12:53:05.643Z"},"createdon":{"$date":"2019-04-06T12:52:07.108Z"}},{"accno":5.67567567e+08,"acctype":"C","intrate":0.0,"overrate":25.0,"bln":800.0,"lastaccess":{"$date":"2019-04-06T12:53:26.363Z"}}]}
+{"_id":2.0,"fn":"Tom","ln":"White","ssn":{"$numberLong":"7418529631"},"add":"1st Main St.","city":"Queens","state":"NY","zip":100352}
+{"_id":3.0,"fn":"Tom","ln":"White","ssn":{"$numberLong":"5461237984"},"add":"1st Main St.","city":"Queens","state":"NY","zip":100354}
+{"_id":4.0,"fn":"Tim","ln":"Chan","ssn":{"$numberLong":"8523697412"},"add":"100th 21st Ave.","city":"Brooklyn","state":"NY","zip":103567}
+{"_id":5.0,"fn":"Alex","ln":"Wang","ssn":{"$numberLong":"9876543219"},"add":"2800 Hyland Blvd.","city":"Staten Island","state":"NY","zip":10305}
+{"_id":6.0,"fn":"James","ln":"Williams","ssn":1234567894,"add":"10th Main St.","city":"Long Island","state":"NY","zip":103569}
+{"_id":7.0,"fn":"John","ln":"Toms","ssn":1593574568,"add":"10th 10th St.","city":"Bronx","state":"NY","zip":101010}
+{"_id":8.0,"fn":"James","ln":"He","ssn":{"$numberLong":"7891234565"},"add":"1st 1st St.","city":"Long Island","state":"\u0009NY","zip":123123}
